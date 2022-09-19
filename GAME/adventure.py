@@ -1,6 +1,6 @@
 def main():
     
-    # Introduction + Goodbye
+    # Introduction, Goodbye
     intro = "Welcome to Hannah's Haunted House! You will travel through several rooms and collect many objects in order to escape this spooky home."
     goodbye = "Thank you for playing, goodbye!"
 
@@ -31,7 +31,7 @@ def main():
     guest_room_details = "When you look inside the nightstand, there is a small box."
     home_gym_details = "Underneath the treadmill, there is a small box."
 
-    # This starts with an intro statement, and then goes through each room by having the user press and key to continue. At the end, a goodbye message is printed.
+    #This starts with an intro statement, and then goes through each room by having the user press and key to continue. After each room detail is presented, there is a +1 to the room counter. At the end, the number of rooms visited and a goodbye message is printed.
     print(intro)
     begin = input("Press any any to begin: ")
     print(foyer)
