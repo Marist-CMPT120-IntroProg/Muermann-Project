@@ -1,6 +1,3 @@
-from macpath import normpath
-
-
 def main():
     
     # Game Name, Goodbye
@@ -38,66 +35,152 @@ def main():
     print(game_name)
     username = input("What's your name? ")
     print(f"Hello {username}! You will soon travel through several rooms and collect many objects in order to escape this spooky home.")
-    begin = input("Press any any to begin: ")
-    print(foyer)
-
-
+    begin = input("Press enter to begin: ")
+    while True:
+        print(foyer)
+        cont1 = str.lower(input("What would you like to do? "))
+        if cont1 == "help":
+            print("These are the valid commands: Help, Quit, North, East, South, West")
+            input("What would you like to do? ")
+        elif cont1 == "quit":
+            break
+        elif cont1 == "north" or cont1 == "south" or cont1 == "east" or cont1 == "west":
+            room_counter += 1
+            break
+        else:
+            print("That command is invalid.")
+    while True:
+        print(hallway)
+        cont1 = str.lower(input("What would you like to do? "))
+        if cont1 == "help":
+            print("These are the valid commands: Help, Quit, North, East, South, West")
+            input("What would you like to do? ")
+        elif cont1 == "quit":
+            break
+        elif cont1 == "north" or cont1 == "south" or cont1 == "east" or cont1 == "west":
+            room_counter += 1
+            break
+        else:
+            print("That command is invalid.")
+    while True:
+        print(bathroom)
+        cont1 = str.lower(input("What would you like to do? "))
+        if cont1 == "help":
+            print("These are the valid commands: Help, Quit, North, East, South, West")
+            input("What would you like to do? ")
+        elif cont1 == "quit":
+            break
+        elif cont1 == "north" or cont1 == "south" or cont1 == "east" or cont1 == "west":
+            room_counter += 1
+            break
+        else:
+            print("That command is invalid.")
+    while True:
+        print(bedroom)
+        cont1 = str.lower(input("What would you like to do? "))
+        if cont1 == "help":
+            print("These are the valid commands: Help, Quit, North, East, South, West")
+            input("What would you like to do? ")
+        elif cont1 == "quit":
+            break
+        elif cont1 == "north" or cont1 == "south" or cont1 == "east" or cont1 == "west":
+            room_counter += 1
+            break
+        else:
+            print("That command is invalid.")
+    while True:
+        print(nursery)
+        cont1 = str.lower(input("What would you like to do? "))
+        if cont1 == "help":
+            print("These are the valid commands: Help, Quit, North, East, South, West")
+            input("What would you like to do? ")
+        elif cont1 == "quit":
+            break
+        elif cont1 == "north" or cont1 == "south" or cont1 == "east" or cont1 == "west":
+            room_counter += 1
+            break
+        else:
+            print("That command is invalid.")
+    while True:
+        print(home_office)
+        cont1 = str.lower(input("What would you like to do? "))
+        if cont1 == "help":
+            print("These are the valid commands: Help, Quit, North, East, South, West")
+            input("What would you like to do? ")
+        elif cont1 == "quit":
+            break
+        elif cont1 == "north" or cont1 == "south" or cont1 == "east" or cont1 == "west":
+            room_counter += 1
+            break
+        else:
+            print("That command is invalid.")
+    while True:
+        print(living_room)
+        cont1 = str.lower(input("What would you like to do? "))
+        if cont1 == "help":
+            print("These are the valid commands: Help, Quit, North, East, South, West")
+            input("What would you like to do? ")
+        elif cont1 == "quit":
+            break
+        elif cont1 == "north" or cont1 == "south" or cont1 == "east" or cont1 == "west":
+            room_counter += 1
+            break
+        else:
+            print("That command is invalid.")
+    while True:
+        print(kitchen)
+        cont1 = str.lower(input("What would you like to do? "))
+        if cont1 == "help":
+            print("These are the valid commands: Help, Quit, North, East, South, West")
+            input("What would you like to do? ")
+        elif cont1 == "quit":
+            break
+        elif cont1 == "north" or cont1 == "south" or cont1 == "east" or cont1 == "west":
+            room_counter += 1
+            break
+        else:
+            print("That command is invalid.")
+    while True:
+        print(storage_room)
+        cont1 = str.lower(input("What would you like to do? "))
+        if cont1 == "help":
+            print("These are the valid commands: Help, Quit, North, East, South, West")
+            input("What would you like to do? ")
+        elif cont1 == "quit":
+            break
+        elif cont1 == "north" or cont1 == "south" or cont1 == "east" or cont1 == "west":
+            room_counter += 1
+            break
+        else:
+            print("That command is invalid.")
+    while True:
+        print(guest_room)
+        cont1 = str.lower(input("What would you like to do? "))
+        if cont1 == "help":
+            print("These are the valid commands: Help, Quit, North, East, South, West")
+            input("What would you like to do? ")
+        elif cont1 == "quit":
+            break
+        elif cont1 == "north" or cont1 == "south" or cont1 == "east" or cont1 == "west":
+            room_counter += 1
+            break
+        else:
+            print("That command is invalid.")
+    while True:
+        print(home_gym)
+        cont1 = str.lower(input("What would you like to do? "))
+        if cont1 == "help":
+            print("These are the valid commands: Help, Quit, North, East, South, West")
+            input("What would you like to do? ")
+        elif cont1 == "quit":
+            break
+        elif cont1 == "north" or cont1 == "south" or cont1 == "east" or cont1 == "west":
+            room_counter += 1
+            break
+        else:
+            print("That command is invalid.")
     
-    # cont = input("Press any key to continue: ")
-    # print(foyer_details)
-    # cont = input("Press any key to continue: ")
-    # room_counter += 1
-    # print(hallway)
-    # cont = input("Press any key to continue: ")
-    # print(hallway_details)
-    # cont = input("Press any key to continue: ")
-    # room_counter += 1
-    # print(bathroom)
-    # cont = input("Press any key to continue: ")
-    # print(bathroom_details)
-    # cont = input("Press any key to continue: ")
-    # room_counter += 1
-    # print(bedroom)
-    # cont = input("Press any key to continue: ")
-    # print(bedroom_details)
-    # cont = input("Press any key to continue: ")
-    # room_counter += 1
-    # print(nursery)
-    # cont = input("Press any key to continue: ")
-    # print(nursery_details)
-    # cont = input("Press any key to continue: ")
-    # room_counter += 1
-    # print(home_office)
-    # cont = input("Press any key to continue: ")
-    # print(home_office_details)
-    # cont = input("Press any key to continue: ")
-    # room_counter += 1
-    # print(living_room)
-    # cont = input("Press any key to continue: ")
-    # print(living_room_details)
-    # cont = input("Press any key to continue: ")
-    # room_counter += 1
-    # print(kitchen)
-    # cont = input("Press any key to continue: ")
-    # print(kitchen_details)
-    # cont = input("Press any key to continue: ")
-    # room_counter += 1
-    # print(storage_room)
-    # cont = input("Press any key to continue: ")
-    # print(storage_room_details)
-    # cont = input("Press any key to continue: ")
-    # room_counter += 1
-    # print(guest_room)
-    # cont = input("Press any key to continue: ")
-    # print(guest_room_details)
-    # cont = input("Press any key to continue: ")
-    # room_counter += 1
-    # print(home_gym)
-    # cont = input("Press any key to continue: ")
-    # print(home_gym_details)
-    # cont = input("Press any key to continue: ")
-    # room_counter += 1
-    # print("You visited", room_counter, "rooms.")
-    # print(goodbye)
-
+    print("You visited", room_counter, "rooms.")
+    print(goodbye)
+            
 main()
