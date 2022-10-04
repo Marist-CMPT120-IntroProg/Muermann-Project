@@ -1,7 +1,10 @@
+from macpath import normpath
+
+
 def main():
     
-    # Introduction, Goodbye
-    intro = "Welcome to Hannah's Haunted House! You will travel through several rooms and collect many objects in order to escape this spooky home."
+    # Game Name, Goodbye
+    game_name = "Welcome to Hannah's Haunted House!"
     goodbye = "Thank you for playing, goodbye!"
 
     # All Rooms
@@ -32,64 +35,69 @@ def main():
     home_gym_details = "Underneath the treadmill, there is a small box."
 
     #This starts with an intro statement, and then goes through each room by having the user press and key to continue. After each room detail is presented, there is a +1 to the room counter. At the end, the number of rooms visited and a goodbye message is printed.
-    print(intro)
+    print(game_name)
+    username = input("What's your name? ")
+    print(f"Hello {username}! You will soon travel through several rooms and collect many objects in order to escape this spooky home.")
     begin = input("Press any any to begin: ")
     print(foyer)
-    cont = input("Press any key to continue: ")
-    print(foyer_details)
-    cont = input("Press any key to continue: ")
-    room_counter += 1
-    print(hallway)
-    cont = input("Press any key to continue: ")
-    print(hallway_details)
-    cont = input("Press any key to continue: ")
-    room_counter += 1
-    print(bathroom)
-    cont = input("Press any key to continue: ")
-    print(bathroom_details)
-    cont = input("Press any key to continue: ")
-    room_counter += 1
-    print(bedroom)
-    cont = input("Press any key to continue: ")
-    print(bedroom_details)
-    cont = input("Press any key to continue: ")
-    room_counter += 1
-    print(nursery)
-    cont = input("Press any key to continue: ")
-    print(nursery_details)
-    cont = input("Press any key to continue: ")
-    room_counter += 1
-    print(home_office)
-    cont = input("Press any key to continue: ")
-    print(home_office_details)
-    cont = input("Press any key to continue: ")
-    room_counter += 1
-    print(living_room)
-    cont = input("Press any key to continue: ")
-    print(living_room_details)
-    cont = input("Press any key to continue: ")
-    room_counter += 1
-    print(kitchen)
-    cont = input("Press any key to continue: ")
-    print(kitchen_details)
-    cont = input("Press any key to continue: ")
-    room_counter += 1
-    print(storage_room)
-    cont = input("Press any key to continue: ")
-    print(storage_room_details)
-    cont = input("Press any key to continue: ")
-    room_counter += 1
-    print(guest_room)
-    cont = input("Press any key to continue: ")
-    print(guest_room_details)
-    cont = input("Press any key to continue: ")
-    room_counter += 1
-    print(home_gym)
-    cont = input("Press any key to continue: ")
-    print(home_gym_details)
-    cont = input("Press any key to continue: ")
-    room_counter += 1
-    print("You visited", room_counter, "rooms.")
-    print(goodbye)
+
+
+    
+    # cont = input("Press any key to continue: ")
+    # print(foyer_details)
+    # cont = input("Press any key to continue: ")
+    # room_counter += 1
+    # print(hallway)
+    # cont = input("Press any key to continue: ")
+    # print(hallway_details)
+    # cont = input("Press any key to continue: ")
+    # room_counter += 1
+    # print(bathroom)
+    # cont = input("Press any key to continue: ")
+    # print(bathroom_details)
+    # cont = input("Press any key to continue: ")
+    # room_counter += 1
+    # print(bedroom)
+    # cont = input("Press any key to continue: ")
+    # print(bedroom_details)
+    # cont = input("Press any key to continue: ")
+    # room_counter += 1
+    # print(nursery)
+    # cont = input("Press any key to continue: ")
+    # print(nursery_details)
+    # cont = input("Press any key to continue: ")
+    # room_counter += 1
+    # print(home_office)
+    # cont = input("Press any key to continue: ")
+    # print(home_office_details)
+    # cont = input("Press any key to continue: ")
+    # room_counter += 1
+    # print(living_room)
+    # cont = input("Press any key to continue: ")
+    # print(living_room_details)
+    # cont = input("Press any key to continue: ")
+    # room_counter += 1
+    # print(kitchen)
+    # cont = input("Press any key to continue: ")
+    # print(kitchen_details)
+    # cont = input("Press any key to continue: ")
+    # room_counter += 1
+    # print(storage_room)
+    # cont = input("Press any key to continue: ")
+    # print(storage_room_details)
+    # cont = input("Press any key to continue: ")
+    # room_counter += 1
+    # print(guest_room)
+    # cont = input("Press any key to continue: ")
+    # print(guest_room_details)
+    # cont = input("Press any key to continue: ")
+    # room_counter += 1
+    # print(home_gym)
+    # cont = input("Press any key to continue: ")
+    # print(home_gym_details)
+    # cont = input("Press any key to continue: ")
+    # room_counter += 1
+    # print("You visited", room_counter, "rooms.")
+    # print(goodbye)
 
 main()
