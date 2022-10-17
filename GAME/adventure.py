@@ -52,10 +52,44 @@ def main():
     while True:
         cont = str.lower(input("What would you like to do? "))
         if cont == "help":
-            print("These are the valid commands: Help, Quit, North, East, South, West")
+            print("These are the valid commands: Help, Quit, North, East, South, West, Examine")
             continue
         elif cont == "quit":
             break
+        elif cont == "examine":
+            if current_room == foy:
+                print(foyer_details)
+                continue
+            elif current_room == bat:
+                print(bathroom_details)
+                continue
+            elif current_room == bed:
+                print(bedroom_details)
+                continue
+            elif current_room == nur:
+                print(nursery_details)
+                continue
+            elif current_room == off:
+                print(home_office_details)
+                continue
+            elif current_room == live:
+                print(living_room_details)
+                continue
+            elif current_room == kit:
+                print(kitchen_details)
+                continue
+            elif current_room == stor:
+                print(storage_room_details)
+                continue
+            elif current_room == guest:
+                print(guest_room_details)
+                continue
+            elif current_room == gym:
+                print(home_gym_details)
+                continue
+            else:
+                print("Error")
+                continue
         elif current_room == foy:
             if cont == "north":
                 current_room = live
