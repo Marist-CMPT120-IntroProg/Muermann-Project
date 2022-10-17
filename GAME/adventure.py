@@ -1,12 +1,10 @@
 def main():
     
-    # Game Name, Goodbye
+    # Game Name
     game_name = "Welcome to Hannah's Haunted House!"
-    goodbye = "Thank you for playing, goodbye!"
 
     # All Rooms
     foyer = "This is an old foyer in front of a locked door. The lights are dim."
-    hallway = "The hallway is long, and lacks decorations. The lights are bright. Doors line each wall."
     bathroom = "The bathroom is lit by a dim candle. There are cobwebs in the corner."
     bedroom = "The bedroom is a tight space with a queen size bed. The only light is coming from the hallway. There is a locked window."
     nursery = "The nursery is completely empty. There is a single floorboard coming up. The window is locked."
@@ -20,7 +18,6 @@ def main():
 
     # Room Names
     foy = "Foyer"
-    hall = "Hallway"
     bat = "Bathroom"
     bed = "Bedroom"
     nur = "Nursery"
@@ -33,7 +30,6 @@ def main():
 
     # Room Details
     foyer_details = "When you look closer, you see a large rug in front of the door."
-    hallway_details = "On the left side of the hallway, there is a large painting of a fire."
     bathroom_details = "When you look closer, you see a rusted sink and a shower with a ripped curtain."
     bedroom_details = "When you look under the bed, there is a small shoebox and a key."
     nursery_details = "When you look under the floorboard, there is a pacifier."
@@ -75,6 +71,9 @@ def main():
             elif cont == "west":
                 print("There is no door on that side.")
                 continue
+            else:
+                print("That command is invalid.")
+                continue
         elif current_room == live:
             if cont == "north":
                 current_room = kit
@@ -96,6 +95,9 @@ def main():
                 print(bathroom)
                 room_counter += 1
                 continue
+            else:
+                print("That command is invalid.")
+                continue
         elif current_room == kit:
             if cont == "north":
                 print("There is no door on that side.")
@@ -110,6 +112,9 @@ def main():
                 continue
             elif cont == "west":
                 print("There is no door on that side.")
+                continue
+            else:
+                print("That command is invalid.")
                 continue
         elif current_room == bat:
             if cont == "north":
@@ -128,6 +133,9 @@ def main():
             elif cont == "west":
                 print("There is no door on that side.")
                 continue
+            else:
+                print("That command is invalid.")
+                continue
         elif current_room == gym:
             if cont == "north":
                 current_room = guest
@@ -144,6 +152,9 @@ def main():
                 current_room = live
                 print(living_room)
                 room_counter += 1
+                continue
+            else:
+                print("That command is invalid.")
                 continue
         elif current_room == bed:
             if cont == "north":
@@ -162,6 +173,9 @@ def main():
             elif cont == "west":
                 print("There is no door on that side.")
                 continue
+            else:
+                print("That command is invalid.")
+                continue
         elif current_room == guest:
             if cont == "north":
                 current_room = stor
@@ -178,6 +192,9 @@ def main():
                 continue
             elif cont == "west":
                 print("There is no door on that side.")
+                continue
+            else:
+                print("That command is invalid.")
                 continue
         elif current_room == nur:
             if cont == "north":
@@ -196,6 +213,9 @@ def main():
             elif cont == "west":
                 print("There is no door on that side.")
                 continue
+            else:
+                print("That command is invalid.")
+                continue
         elif current_room == stor:
             if cont == "north":
                 print("There is no door on that side.")
@@ -210,6 +230,9 @@ def main():
                 continue
             elif cont == "west":
                 print("There is no door on that side.")
+                continue
+            else:
+                print("That command is invalid.")
                 continue
         elif current_room == off:
             if cont == "north":
@@ -226,11 +249,12 @@ def main():
             elif cont == "west":
                 print("There is no door on that side.")
                 continue
-        else:
-            print("That command is invalid.")
-            continue
+            else:
+                print("That command is invalid.")
+                continue
 
     print("You visited", room_counter, "rooms.")
-    print(goodbye)
+    print(f"Thank you for playing, {username}. Goodbye!")
+    print("© Hannah Muermann 2022. All rights reserved.")
             
 main()
