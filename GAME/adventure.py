@@ -3,17 +3,81 @@ def main():
     # Game Name
     game_name = "Welcome to Hannah's Haunted House!"
 
-    # All Rooms
-    foyer = "This is an old foyer in front of a locked door. The lights are dim."
-    bathroom = "The bathroom is lit by a dim candle. There are cobwebs in the corner."
-    bedroom = "The bedroom is a tight space with a queen size bed. The only light is coming from the hallway. There is a locked window."
-    nursery = "The nursery is completely empty. There is a single floorboard coming up. The window is locked."
-    home_office = "The home office has a small desk and a rolling chair. The window is locked."
-    living_room = "The living room has a large old couch, and a TV playing at a low volume. The lights are dim. There are two locked windows."
-    kitchen = "The kitchen has a stove, oven, fridge, and table with two chairs. The only light is coming from the hallway. The window is locked."
-    storage_room = "The storage room has 6 shelves, but only one box on them. The only light is coming from the hallway. There are no windows."
-    guest_room = "The guest room has a single bed and a nightstand. The lights are dim. There is no window."
-    home_gym = "The home gym only contains a treadmill and set of weights. The lights are dim. The window is locked."
+    rooms = ["foyer", "bathroom", "bedroom", "nursery", "home office", "living_room", "kitchen", "storage room", "guest room", "home gym"]
+
+    rooms[0] = {
+        "name":"foyer",
+        "summary":"This is an old foyer in front of a locked door. The lights are dim.",
+        "details":"When you look closer, you see a large rug in front of the door.",
+        "was_visited":False
+        } 
+
+    rooms[1] = {
+        "name":"bathroom",
+        "summary":"The bathroom is lit by a dim candle. There are cobwebs in the corner.",
+        "details":"When you look closer, you see a rusted sink and a shower with a ripped curtain.",
+        "was_visited":False 
+        }
+
+    rooms[2] =  {
+        "name":"bedroom",
+        "summary":"The bedroom is a tight space with a queen size bed. The only light is coming from the hallway. There is a locked window.",
+        "details":"When you look under the bed, there is a small shoebox and a key.",
+        "was_visited":False
+        }
+    
+    rooms[3] = {
+        "name":"nursery",
+        "summary":"The nursery is completely empty. There is a single floorboard coming up. The window is locked.",
+        "details":"When you look under the floorboard, there is a pacifier.",
+        "was_visited":False 
+        }
+
+    rooms[4] = {
+        "name":"home office",
+        "summary":"The home office has a small desk and a rolling chair. The window is locked.",
+        "details":"When you open the desk, there is a notepad and pen.",
+        "was_visited":False 
+        }
+
+    rooms[5] = {
+        "name":"living room",
+        "summary":"The living room has a large old couch, and a TV playing at a low volume. The lights are dim. There are two locked windows.",
+        "details":"When you look closer at the TV, it is playing breaking news. The screen has cracks so you cannot see what is playing, and the volume is too quiet to hear it.",
+        "was_visited":False 
+        }
+
+    rooms[6] = {
+        "name":"kitchen",
+        "summary": "The kitchen has a stove, oven, fridge, and table with two chairs. The only light is coming from the hallway. The window is locked.",
+        "details":"When you open the fridge, there is a water bottle filled with a liquid."
+        }
+    
+    rooms[7] = {
+        "name":"kitchen",
+        "summary": "The kitchen has a stove, oven, fridge, and table with two chairs. The only light is coming from the hallway. The window is locked.",
+        "details":"When you open the fridge, there is a water bottle filled with a liquid."
+        }
+
+    rooms[8] = {
+        "name":"storage room",
+        "summary": "The storage room has 6 shelves, but only one box on them. The only light is coming from the hallway. There are no windows.",
+        "details": "Inside the box, there is an old photo album."
+        }
+
+    rooms[9] = {
+        "name":"guest room",
+        "summary": "The guest room has a single bed and a nightstand. The lights are dim. There is no window.",
+        "details": "Inside the box, there is an old photo album."
+        }
+
+    rooms[10] = {
+        "name":"home gym",
+        "summary": "The home gym only contains a treadmill and set of weights. The lights are dim. The window is locked.",
+        "details": "Underneath the treadmill, there is a small box."
+        }
+    
+
     room_counter = 0
 
     # Room Names
@@ -28,17 +92,6 @@ def main():
     guest = "Guest Room"
     gym = "Home Gym"
 
-    # Room Details
-    foyer_details = "When you look closer, you see a large rug in front of the door."
-    bathroom_details = "When you look closer, you see a rusted sink and a shower with a ripped curtain."
-    bedroom_details = "When you look under the bed, there is a small shoebox and a key."
-    nursery_details = "When you look under the floorboard, there is a pacifier."
-    home_office_details = "When you open the desk, there is a notepad and pen."
-    living_room_details =  "When you look closer at the TV, it is playing breaking news. The screen has cracks so you cannot see what is playing, and the volume is too quiet to hear it."
-    kitchen_details = "When you open the fridge, there is a water bottle filled with a liquid."
-    storage_room_details = "Inside the box, there is an old photo album."
-    guest_room_details = "When you look inside the nightstand, there is a small box."
-    home_gym_details = "Underneath the treadmill, there is a small box."
 
     # Main Game
     print(game_name)
