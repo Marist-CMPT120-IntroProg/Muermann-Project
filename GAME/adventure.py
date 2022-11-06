@@ -3,10 +3,10 @@ def main():
     # Game Name
     game_name = "Welcome to Hannah's Haunted House!"
 
-    rooms = ["foyer", "bathroom", "bedroom", "nursery", "home office", "living_room", "kitchen", "storage room", "guest room", "home gym"]
+    rooms = ["foyer", "bathroom", "bedroom", "nursery", "home office", "living room", "kitchen", "storage room", "guest room", "home gym"]
 
     rooms[0] = {
-        "name":"foyer",
+        "name": "foyer",
         "summary":"This is an old foyer in front of a locked door. The lights are dim.",
         "details":"When you look closer, you see a large rug in front of the door.",
         "was_visited":False
@@ -50,56 +50,40 @@ def main():
     rooms[6] = {
         "name":"kitchen",
         "summary": "The kitchen has a stove, oven, fridge, and table with two chairs. The only light is coming from the hallway. The window is locked.",
-        "details":"When you open the fridge, there is a water bottle filled with a liquid."
+        "details":"When you open the fridge, there is a water bottle filled with a liquid.",
+        "was_visited":False
         }
     
     rooms[7] = {
-        "name":"kitchen",
-        "summary": "The kitchen has a stove, oven, fridge, and table with two chairs. The only light is coming from the hallway. The window is locked.",
-        "details":"When you open the fridge, there is a water bottle filled with a liquid."
+        "name":"storage room",
+        "summary": "The storage room has 6 shelves, but only one box on them. The only light is coming from the hallway. There are no windows.",
+        "details": "Inside the box, there is an old photo album.",
+        "was_visited":False
         }
 
     rooms[8] = {
-        "name":"storage room",
-        "summary": "The storage room has 6 shelves, but only one box on them. The only light is coming from the hallway. There are no windows.",
-        "details": "Inside the box, there is an old photo album."
+        "name":"guest room",
+        "summary": "The guest room has a single bed and a nightstand. The lights are dim. There is no window.",
+        "details": "Inside the box, there is an old photo album.",
+        "was_visited":False
         }
 
     rooms[9] = {
-        "name":"guest room",
-        "summary": "The guest room has a single bed and a nightstand. The lights are dim. There is no window.",
-        "details": "Inside the box, there is an old photo album."
-        }
-
-    rooms[10] = {
         "name":"home gym",
-        "summary": "The home gym only contains a treadmill and set of weights. The lights are dim. The window is locked.",
-        "details": "Underneath the treadmill, there is a small box."
+        "summary": "The home gym contains a treadmill and set of weights. The lights are dim. The window is locked.",
+        "details": "Underneath the treadmill, there is a small box.",
+        "was_visited":False
         }
-    
 
     room_counter = 0
-
-    # Room Names
-    foy = "Foyer"
-    bat = "Bathroom"
-    bed = "Bedroom"
-    nur = "Nursery"
-    off = "Home Office"
-    live = "Living Room"
-    kit = "Kitchen"
-    stor = "Storage Room"
-    guest = "Guest Room"
-    gym = "Home Gym"
-
 
     # Main Game
     print(game_name)
     username = input("What's your name? ")
     print(f"Hello {username}! You will soon travel through several rooms and collect many objects in order to escape this spooky home.")
     begin = input("Press enter to begin: ")
-    current_room = foy
-    print(foyer)
+    current_room = rooms[0]
+    print(rooms[0]["summary"])
     room_counter += 1
 
     while True:
@@ -110,43 +94,43 @@ def main():
         elif cont == "quit":
             break
         elif cont == "examine":
-            if current_room == foy:
-                print(foyer_details)
+            if current_room == rooms[0]:
+                print(rooms[0]["details"])
                 continue
-            elif current_room == bat:
-                print(bathroom_details)
+            elif current_room == rooms[1]:
+                print(rooms[1]["details"])
                 continue
-            elif current_room == bed:
-                print(bedroom_details)
+            elif current_room == rooms[2]:
+                print(rooms[2]["details"])
                 continue
-            elif current_room == nur:
-                print(nursery_details)
+            elif current_room == rooms[3]:
+                print(rooms[3]["details"])
                 continue
-            elif current_room == off:
-                print(home_office_details)
+            elif current_room == rooms[4]:
+                print(rooms[4]["details"])
                 continue
-            elif current_room == live:
-                print(living_room_details)
+            elif current_room == rooms[5]:
+                print(rooms[5]["details"])
                 continue
-            elif current_room == kit:
-                print(kitchen_details)
+            elif current_room == rooms[6]:
+                print(rooms[6]["details"])
                 continue
-            elif current_room == stor:
-                print(storage_room_details)
+            elif current_room == rooms[7]:
+                print(rooms[7]["details"])
                 continue
-            elif current_room == guest:
-                print(guest_room_details)
+            elif current_room == rooms[8]:
+                print(rooms[8]["details"])
                 continue
-            elif current_room == gym:
-                print(home_gym_details)
+            elif current_room == rooms[9]:
+                print(rooms[9]["details"])
                 continue
             else:
                 print("Error")
                 continue
-        elif current_room == foy:
+        elif current_room == rooms[0]:
             if cont == "north":
-                current_room = live
-                print(living_room)
+                current_room = rooms[5]
+                print(rooms[5]["summary"])
                 room_counter += 1
                 continue
             elif cont == "south":
@@ -161,97 +145,37 @@ def main():
             else:
                 print("That command is invalid.")
                 continue
-        elif current_room == live:
+        elif current_room == rooms[5]:
             if cont == "north":
-                current_room = kit
-                print(kitchen)
+                current_room = rooms[6]
+                print(rooms[6]["summary"])
                 room_counter += 1
                 continue
             elif cont == "south":
-                current_room = foy
-                print(foyer)
+                current_room = rooms[0]
+                print(rooms[0]["summary"])
                 room_counter += 1
                 continue
             elif cont == "east":
-                current_room = gym
-                print(home_gym)
+                current_room = rooms[9]
+                print(rooms[9]["summary"])
                 room_counter += 1
                 continue
             elif cont == "west":
-                current_room = bat
-                print(bathroom)
+                current_room = rooms[1]
+                print(rooms[1]["summary"])
                 room_counter += 1
                 continue
             else:
                 print("That command is invalid.")
                 continue
-        elif current_room == kit:
+        elif current_room == rooms[6]:
             if cont == "north":
                 print("There is no door on that side.")
                 continue
             elif cont == "south":
-                current_room = live
-                print(living_room)
-                room_counter += 1
-                continue
-            elif cont == "east":
-                print("There is no door on that side.")
-                continue
-            elif cont == "west":
-                print("There is no door on that side.")
-                continue
-            else:
-                print("That command is invalid.")
-                continue
-        elif current_room == bat:
-            if cont == "north":
-                current_room = bed
-                print(bedroom)
-                room_counter += 1
-                continue
-            elif cont == "south":
-                print("There is no door on that side.")
-                continue
-            elif cont == "east":
-                current_room = live
-                print(living_room)
-                room_counter += 1
-                continue
-            elif cont == "west":
-                print("There is no door on that side.")
-                continue
-            else:
-                print("That command is invalid.")
-                continue
-        elif current_room == gym:
-            if cont == "north":
-                current_room = guest
-                print(guest_room)
-                room_counter += 1
-                continue
-            elif cont == "south":
-                print("There is no door on that side.")
-                continue
-            elif cont == "east":
-                print("There is no door on that side.")
-                continue
-            elif cont == "west":
-                current_room = live
-                print(living_room)
-                room_counter += 1
-                continue
-            else:
-                print("That command is invalid.")
-                continue
-        elif current_room == bed:
-            if cont == "north":
-                current_room = nur
-                print(nursery)
-                room_counter += 1
-                continue
-            elif cont == "south":
-                current_room = bat
-                print(bathroom)
+                current_room = rooms[5]
+                print(rooms[5]["summary"])
                 room_counter += 1
                 continue
             elif cont == "east":
@@ -263,15 +187,55 @@ def main():
             else:
                 print("That command is invalid.")
                 continue
-        elif current_room == guest:
+        elif current_room == rooms[1]:
             if cont == "north":
-                current_room = stor
-                print(storage_room)
+                current_room = rooms[2]
+                print(rooms[2]["summary"])
                 room_counter += 1
                 continue
             elif cont == "south":
-                current_room = gym
-                print(home_gym)
+                print("There is no door on that side.")
+                continue
+            elif cont == "east":
+                current_room = rooms[5]
+                print(rooms[5]["summary"])
+                room_counter += 1
+                continue
+            elif cont == "west":
+                print("There is no door on that side.")
+                continue
+            else:
+                print("That command is invalid.")
+                continue
+        elif current_room == rooms[9]:
+            if cont == "north":
+                current_room = rooms[8]
+                print(rooms[8]["summary"])
+                room_counter += 1
+                continue
+            elif cont == "south":
+                print("There is no door on that side.")
+                continue
+            elif cont == "east":
+                print("There is no door on that side.")
+                continue
+            elif cont == "west":
+                current_room = rooms[5]
+                print(rooms[5]["summary"])
+                room_counter += 1
+                continue
+            else:
+                print("That command is invalid.")
+                continue
+        elif current_room == rooms[2]:
+            if cont == "north":
+                current_room = rooms[3]
+                print(rooms[3]["summary"])
+                room_counter += 1
+                continue
+            elif cont == "south":
+                current_room = rooms[1]
+                print(rooms[1]["summary"])
                 room_counter += 1
                 continue
             elif cont == "east":
@@ -283,33 +247,15 @@ def main():
             else:
                 print("That command is invalid.")
                 continue
-        elif current_room == nur:
+        elif current_room == rooms[8]:
             if cont == "north":
-                current_room = off
-                print(home_office)
+                current_room = rooms[7]
+                print(rooms[7]["summary"])
                 room_counter += 1
                 continue
             elif cont == "south":
-                current_room = bed
-                print(bedroom)
-                room_counter += 1
-                continue
-            elif cont == "east":
-                print("There is no door on that side.")
-                continue
-            elif cont == "west":
-                print("There is no door on that side.")
-                continue
-            else:
-                print("That command is invalid.")
-                continue
-        elif current_room == stor:
-            if cont == "north":
-                print("There is no door on that side.")
-                continue
-            elif cont == "south":
-                current_room = guest
-                print(guest_room)
+                current_room = rooms[9]
+                print(rooms[9]["summary"])
                 room_counter += 1
                 continue
             elif cont == "east":
@@ -321,13 +267,51 @@ def main():
             else:
                 print("That command is invalid.")
                 continue
-        elif current_room == off:
+        elif current_room == rooms[3]:
+            if cont == "north":
+                current_room = rooms[4]
+                print(rooms[4]["summary"])
+                room_counter += 1
+                continue
+            elif cont == "south":
+                current_room = rooms[2]
+                print(rooms[2]["summary"])
+                room_counter += 1
+                continue
+            elif cont == "east":
+                print("There is no door on that side.")
+                continue
+            elif cont == "west":
+                print("There is no door on that side.")
+                continue
+            else:
+                print("That command is invalid.")
+                continue
+        elif current_room == rooms[7]:
             if cont == "north":
                 print("There is no door on that side.")
                 continue
             elif cont == "south":
-                current_room = nur
-                print(nursery)
+                current_room = rooms[8]
+                print(rooms[8]["summary"])
+                room_counter += 1
+                continue
+            elif cont == "east":
+                print("There is no door on that side.")
+                continue
+            elif cont == "west":
+                print("There is no door on that side.")
+                continue
+            else:
+                print("That command is invalid.")
+                continue
+        elif current_room == rooms[4]:
+            if cont == "north":
+                print("There is no door on that side.")
+                continue
+            elif cont == "south":
+                current_room = rooms[3]
+                print(rooms[3]["summary"])
                 room_counter += 1
                 continue
             elif cont == "east":
