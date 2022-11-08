@@ -2,16 +2,16 @@
 # - By Hannah Muermann
 
 # -- Global Variables
-room_counter = 0
-score = 0
+room_counter: int = 0
+score: int = 0
 
 # -- Lists
-room_names = ["foyer", "bathroom", "bedroom", "nursery", "home office", "living room", "kitchen", "storage room", "guest room", "home gym"]
-direction_options = ["north", "east", "south", "west"]
+room_names: list = ["foyer", "bathroom", "bedroom", "nursery", "home office", "living room", "kitchen", "storage room", "guest room", "home gym"]
+direction_options: list = ["north", "east", "south", "west"]
 
 # -- List of Dictionaries
 # --- Name of Location, Summary of Location, Details of Location, if it has been visited or not
-rooms = [ 
+rooms: dict = [ 
     {"name": "foyer",
     "summary":"This is an old foyer in front of a locked door. The lights are dim.",
     "details":"When you look closer, you see a large rug in front of the door.",
@@ -64,7 +64,7 @@ rooms = [
 
 # -- Game Map
 # --- Each column associated with order of room list (ex: foyer = 0) and each column associated with directions list (ex: north = 0)
-game_map = [["living room", None, None, None],
+game_map: tuple = [["living room", None, None, None],
             ["bedroom", "living room", None, None],
             ["nursery", None, "bathroom", None],
             ["home office", None, "bedroom", None],
@@ -84,7 +84,7 @@ def print_intro():
     input("Press enter to begin: ")
 
 def get_username():
-    username = input("What's your name? ")
+    username: str = input("What's your name? ")
     return username
 
 def print_first_room():
@@ -109,9 +109,9 @@ def examine(current_room):
 def move(current_room, desired_move):
     global room_counter
     global score
-    row_num = room_names.index(current_room)
-    column_num = direction_options.index(desired_move)
-    new_room = game_map[row_num][column_num]
+    row_num: int = room_names.index(current_room)
+    column_num: int = direction_options.index(desired_move)
+    new_room: str = game_map[row_num][column_num]
     if new_room == None:
         print("You cannot go that way. Try again.")
         return current_room
@@ -121,7 +121,7 @@ def move(current_room, desired_move):
                 if room["was_visited"] == False:
                     room["was_visited"] = True
                     score += 1
-                current_room = new_room
+                current_room: str = new_room
                 print(room["summary"])
                 room_counter += 1
                 return current_room
