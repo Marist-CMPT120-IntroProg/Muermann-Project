@@ -1,17 +1,21 @@
-# Game Name
-game_name = "Welcome to Hannah's Haunted House!"
+# Hannah's Haunted House!
+# - By Hannah Muermann
 
+# -- Global Variables
 room_counter = 0
 score = 0
 
+# -- Lists
 room_names = ["foyer", "bathroom", "bedroom", "nursery", "home office", "living room", "kitchen", "storage room", "guest room", "home gym"]
 direction_options = ["north", "east", "south", "west"]
 
+# -- List of Dictionaries
+# --- Name of Location, Summary of Location, Details of Location, if it has been visited or not
 rooms = [ 
     {"name": "foyer",
     "summary":"This is an old foyer in front of a locked door. The lights are dim.",
     "details":"When you look closer, you see a large rug in front of the door.",
-    "was_visited":True},
+    "was_visited":True}, # Set to True since this is the room the player starts in, therefore they HAVE to visit it
 
     {"name":"bathroom",
     "summary":"The bathroom is lit by a dim candle. There are cobwebs in the corner.",
@@ -58,6 +62,8 @@ rooms = [
     "details": "Underneath the treadmill, there is a small box.",
     "was_visited":False}]
 
+# -- Game Map
+# --- Each column associated with order of room list (ex: foyer = 0) and each column associated with directions list (ex: north = 0)
 game_map = [["living room", None, None, None],
             ["bedroom", "living room", None, None],
             ["nursery", None, "bathroom", None],
@@ -69,6 +75,37 @@ game_map = [["living room", None, None, None],
             ["storage room", None, "home gym", None],
             ["guest room", None, None, "living room"]]
 
+# -- Functions
+def print_intro():
+    global username
+    print("Welcome to Hannah's Haunted House!")
+    username = get_username()
+    print(f"Hello {username}! You will soon travel through several rooms and collect many objects in order to escape this spooky home.")
+    input("Press enter to begin: ")
+
+def get_username():
+    username = input("What's your name? ")
+    return username
+
+def print_first_room():
+    global room_counter
+    global score
+    print(rooms[0]["summary"])
+    room_counter += 1
+    score += 1
+
+def get_help():
+    print("These are the valid commands: Help, Quit, North, East, South, West, Examine")
+
+# --- Searches through each room in dictionary to find correct details
+def examine(current_room):
+    for room in rooms:
+        if room["name"] == current_room:
+            print(room["details"])
+    
+# --- Finds index of room and direction in order to find associated room in game map
+# --- If the room is not the value None, it will update the current room and add to the score and room counter
+# --- It also searches through the dictionary to possibly change was_visited to True, and print the correct summary for the new location
 def move(current_room, desired_move):
     global room_counter
     global score
@@ -89,266 +126,36 @@ def move(current_room, desired_move):
                 room_counter += 1
                 return current_room
 
+def print_outro():
+    print("You visited", room_counter, "rooms. You have scored", score, "points.")
+    print(f"Thank you for playing, {username}. Goodbye!")
+    print("© Hannah Muermann 2022. All rights reserved.")
 
 # Main Game
 def main():
     global room_counter
     global score
-    print(game_name)
-    username = input("What's your name? ")
-    print(f"Hello {username}! You will soon travel through several rooms and collect many objects in order to escape this spooky home.")
-    begin = input("Press enter to begin: ")
-    current_room = rooms[0]["name"]
-    print(rooms[0]["summary"])
-    room_counter += 1
-    score += 1
+    current_room = rooms[0]["name"] # Intializes the first room
+    print_intro()
+    print_first_room()
     while True:
         desired_move = str.lower(input("What would you like to do? "))
         if desired_move == "help":
-            print("These are the valid commands: Help, Quit, North, East, South, West, Examine")
+            get_help()
             continue
         elif desired_move == "quit":
             break
         elif desired_move == "examine":
-            if current_room == rooms[0]:
-                print(rooms[0]["details"])
-                continue
-            elif current_room == rooms[1]:
-                print(rooms[1]["details"])
-                continue
-            elif current_room == rooms[2]:
-                print(rooms[2]["details"])
-                continue
-            elif current_room == rooms[3]:
-                print(rooms[3]["details"])
-                continue
-            elif current_room == rooms[4]:
-                print(rooms[4]["details"])
-                continue
-            elif current_room == rooms[5]:
-                print(rooms[5]["details"])
-                continue
-            elif current_room == rooms[6]:
-                print(rooms[6]["details"])
-                continue
-            elif current_room == rooms[7]:
-                print(rooms[7]["details"])
-                continue
-            elif current_room == rooms[8]:
-                print(rooms[8]["details"])
-                continue
-            elif current_room == rooms[9]:
-                print(rooms[9]["details"])
-                continue
-            else:
-                print("Error")
-                continue
+            examine(current_room)
+            continue
+        elif desired_move == "north" or desired_move == "east" or desired_move == "south" or desired_move == "west":
+            current_room = move(current_room, desired_move) # Changes the current room variable within the function
+            continue
         else:
-            current_room = move(current_room, desired_move)
-
+            print("That is not a valid command. Try again.")
             continue
 
+    print_outro()
 
-        
-        # elif current_room == rooms[0]:
-        #     if desired_move == "north":
-        #         current_room = rooms[5]
-        #         print(rooms[5]["summary"])
-        #         room_counter += 1
-        #         continue
-        #     elif desired_move == "south":
-        #         print("The door to exit the house is locked. You cannot go this way.")
-        #         continue
-        #     elif desired_move == "east":
-        #         print("There is no door on that side.")
-        #         continue
-        #     elif desired_move == "west":
-        #         print("There is no door on that side.")
-        #         continue
-        #     else:
-        #         print("That command is invalid.")
-        #         continue
-        # elif current_room == rooms[5]:
-        #     if desired_move == "north":
-        #         current_room = rooms[6]
-        #         print(rooms[6]["summary"])
-        #         room_counter += 1
-        #         continue
-        #     elif desired_move == "south":
-        #         current_room = rooms[0]
-        #         print(rooms[0]["summary"])
-        #         room_counter += 1
-        #         continue
-        #     elif desired_move == "east":
-        #         current_room = rooms[9]
-        #         print(rooms[9]["summary"])
-        #         room_counter += 1
-        #         continue
-        #     elif desired_move == "west":
-        #         current_room = rooms[1]
-        #         print(rooms[1]["summary"])
-        #         room_counter += 1
-        #         continue
-        #     else:
-        #         print("That command is invalid.")
-        #         continue
-        # elif current_room == rooms[6]:
-        #     if desired_move == "north":
-        #         print("There is no door on that side.")
-        #         continue
-        #     elif desired_move == "south":
-        #         current_room = rooms[5]
-        #         print(rooms[5]["summary"])
-        #         room_counter += 1
-        #         continue
-        #     elif desired_move == "east":
-        #         print("There is no door on that side.")
-        #         continue
-        #     elif desired_move == "west":
-        #         print("There is no door on that side.")
-        #         continue
-        #     else:
-        #         print("That command is invalid.")
-        #         continue
-        # elif current_room == rooms[1]:
-        #     if desired_move == "north":
-        #         current_room = rooms[2]
-        #         print(rooms[2]["summary"])
-        #         room_counter += 1
-        #         continue
-        #     elif desired_move == "south":
-        #         print("There is no door on that side.")
-        #         continue
-        #     elif desired_move == "east":
-        #         current_room = rooms[5]
-        #         print(rooms[5]["summary"])
-        #         room_counter += 1
-        #         continue
-        #     elif desired_move == "west":
-        #         print("There is no door on that side.")
-        #         continue
-        #     else:
-        #         print("That command is invalid.")
-        #         continue
-        # elif current_room == rooms[9]:
-        #     if desired_move == "north":
-        #         current_room = rooms[8]
-        #         print(rooms[8]["summary"])
-        #         room_counter += 1
-        #         continue
-        #     elif desired_move == "south":
-        #         print("There is no door on that side.")
-        #         continue
-        #     elif desired_move == "east":
-        #         print("There is no door on that side.")
-        #         continue
-        #     elif desired_move == "west":
-        #         current_room = rooms[5]
-        #         print(rooms[5]["summary"])
-        #         room_counter += 1
-        #         continue
-        #     else:
-        #         print("That command is invalid.")
-        #         continue
-        # elif current_room == rooms[2]:
-        #     if desired_move == "north":
-        #         current_room = rooms[3]
-        #         print(rooms[3]["summary"])
-        #         room_counter += 1
-        #         continue
-        #     elif desired_move == "south":
-        #         current_room = rooms[1]
-        #         print(rooms[1]["summary"])
-        #         room_counter += 1
-        #         continue
-        #     elif desired_move == "east":
-        #         print("There is no door on that side.")
-        #         continue
-        #     elif desired_move == "west":
-        #         print("There is no door on that side.")
-        #         continue
-        #     else:
-        #         print("That command is invalid.")
-        #         continue
-        # elif current_room == rooms[8]:
-        #     if desired_move == "north":
-        #         current_room = rooms[7]
-        #         print(rooms[7]["summary"])
-        #         room_counter += 1
-        #         continue
-        #     elif desired_move == "south":
-        #         current_room = rooms[9]
-        #         print(rooms[9]["summary"])
-        #         room_counter += 1
-        #         continue
-        #     elif desired_move == "east":
-        #         print("There is no door on that side.")
-        #         continue
-        #     elif desired_move == "west":
-        #         print("There is no door on that side.")
-        #         continue
-        #     else:
-        #         print("That command is invalid.")
-        #         continue
-        # elif current_room == rooms[3]:
-        #     if desired_move == "north":
-        #         current_room = rooms[4]
-        #         print(rooms[4]["summary"])
-        #         room_counter += 1
-        #         continue
-        #     elif desired_move == "south":
-        #         current_room = rooms[2]
-        #         print(rooms[2]["summary"])
-        #         room_counter += 1
-        #         continue
-        #     elif desired_move == "east":
-        #         print("There is no door on that side.")
-        #         continue
-        #     elif desired_move == "west":
-        #         print("There is no door on that side.")
-        #         continue
-        #     else:
-        #         print("That command is invalid.")
-        #         continue
-        # elif current_room == rooms[7]:
-        #     if desired_move == "north":
-        #         print("There is no door on that side.")
-        #         continue
-        #     elif desired_move == "south":
-        #         current_room = rooms[8]
-        #         print(rooms[8]["summary"])
-        #         room_counter += 1
-        #         continue
-        #     elif desired_move == "east":
-        #         print("There is no door on that side.")
-        #         continue
-        #     elif desired_move == "west":
-        #         print("There is no door on that side.")
-        #         continue
-        #     else:
-        #         print("That command is invalid.")
-        #         continue
-        # elif current_room == rooms[4]:
-        #     if desired_move == "north":
-        #         print("There is no door on that side.")
-        #         continue
-        #     elif desired_move == "south":
-        #         current_room = rooms[3]
-        #         print(rooms[3]["summary"])
-        #         room_counter += 1
-        #         continue
-        #     elif desired_move == "east":
-        #         print("There is no door on that side.")
-        #         continue
-        #     elif desired_move == "west":
-        #         print("There is no door on that side.")
-        #         continue
-        #     else:
-        #         print("That command is invalid.")
-        #         continue
-
-    print("You visited", room_counter, "rooms. You have scored", score, "points.")
-    print(f"Thank you for playing, {username}. Goodbye!")
-    print("© Hannah Muermann 2022. All rights reserved.")
-            
+# -- Running the Game          
 main()
