@@ -77,6 +77,17 @@ def main():
 
     room_counter = 0
 
+    game_map = [["Living Room", None, None, None],
+                ["Bedroom", "Living Room", None, None],
+                ["Nursery", None, "Bathroom", None],
+                ["Home Office", None, "Bedroom", None],
+                [None, None, "Nursery", None],
+                ["Kitchen", "Home Gym", "Foyer", "Bathroom"],
+                [None, None, "Living Room", None],
+                [None, None, "Guest Room", None],
+                ["Storage Room", None, "Home Gym", None],
+                ["Guest Room", None, None, "Living Room"]]
+
     # Main Game
     print(game_name)
     username = input("What's your name? ")
