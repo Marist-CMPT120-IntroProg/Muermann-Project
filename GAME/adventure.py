@@ -1,6 +1,9 @@
 # Game Name
 game_name = "Welcome to Hannah's Haunted House!"
 
+room_counter = 0
+score = 0
+
 room_names = ["foyer", "bathroom", "bedroom", "nursery", "home office", "living room", "kitchen", "storage room", "guest room", "home gym"]
 direction_options = ["north", "east", "south", "west"]
 
@@ -8,7 +11,7 @@ rooms = [
     {"name": "foyer",
     "summary":"This is an old foyer in front of a locked door. The lights are dim.",
     "details":"When you look closer, you see a large rug in front of the door.",
-    "was_visited":False},
+    "was_visited":True},
 
     {"name":"bathroom",
     "summary":"The bathroom is lit by a dim candle. There are cobwebs in the corner.",
@@ -66,10 +69,9 @@ game_map = [["living room", None, None, None],
             ["storage room", None, "home gym", None],
             ["guest room", None, None, "living room"]]
 
-room_counter = 0
-
 def move(current_room, desired_move):
     global room_counter
+    global score
     row_num = room_names.index(current_room)
     column_num = direction_options.index(desired_move)
     new_room = game_map[row_num][column_num]
@@ -79,6 +81,9 @@ def move(current_room, desired_move):
     else:
         for room in rooms:
             if room["name"] == new_room:
+                if room["was_visited"] == False:
+                    room["was_visited"] = True
+                    score += 1
                 current_room = new_room
                 print(room["summary"])
                 room_counter += 1
@@ -87,14 +92,16 @@ def move(current_room, desired_move):
 
 # Main Game
 def main():
+    global room_counter
+    global score
     print(game_name)
     username = input("What's your name? ")
     print(f"Hello {username}! You will soon travel through several rooms and collect many objects in order to escape this spooky home.")
     begin = input("Press enter to begin: ")
     current_room = rooms[0]["name"]
     print(rooms[0]["summary"])
-    global room_counter
     room_counter += 1
+    score += 1
     while True:
         desired_move = str.lower(input("What would you like to do? "))
         if desired_move == "help":
@@ -340,7 +347,7 @@ def main():
         #         print("That command is invalid.")
         #         continue
 
-    print("You visited", room_counter, "rooms.")
+    print("You visited", room_counter, "rooms. You have scored", score, "points.")
     print(f"Thank you for playing, {username}. Goodbye!")
     print("© Hannah Muermann 2022. All rights reserved.")
             
