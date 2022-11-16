@@ -126,18 +126,9 @@ def move(current_room, desired_move):
                 room_counter += 1
                 return current_room
 
-def print_outro():
-    print("You visited", room_counter, "rooms. You have scored", score, "points.")
-    print(f"Thank you for playing, {username}. Goodbye!")
-    print("© Hannah Muermann 2022. All rights reserved.")
-
-# Main Game
-def main():
-    global room_counter
-    global score
-    current_room = rooms[0]["name"] # Intializes the first room
-    print_intro()
-    print_first_room()
+# --- This lets the player choose what they would like to do in the game
+# --- It is all contained in an infinite While loop so they can keep playing until they quit
+def choose_action(current_room):
     while True:
         desired_move = str.lower(input("What would you like to do? "))
         if desired_move == "help":
@@ -155,6 +146,19 @@ def main():
             print("That is not a valid command. Try again.")
             continue
 
+def print_outro():
+    print("You visited", room_counter, "rooms. You have scored", score, "points.")
+    print(f"Thank you for playing, {username}. Goodbye!")
+    print("© Hannah Muermann 2022. All rights reserved.")
+
+# Main Game
+def main():
+    global room_counter
+    global score
+    current_room = rooms[0]["name"] # Intializes the first room
+    print_intro()
+    print_first_room()
+    choose_action(current_room)
     print_outro()
 
 # -- Running the Game          
