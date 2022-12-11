@@ -40,8 +40,10 @@ world = World(
 name = input("What is your name? ")
 player = Player(name, world, foyer, 1, 1)
 
+all_data = world, player
+
 # Functions
-def print_intro():
+def print_intro(): 
     print("Welcome to Hannah's Haunted House!")
     print(f"Hello {name}! You will soon travel through several rooms and collect many objects in order to escape this spooky home.")
     input("Press enter to begin: ")
@@ -71,6 +73,19 @@ def choose_action():
         elif desired_move == "examine":
             examine()
             continue
+        elif desired_move == "talk":
+            if player.current_locale == storage_room:
+                print("A ghost flies out of the box! \"Get out of here human! You're just a guest here.\"")
+            elif player.current_locale == nursery:
+                print("A ghost flies out of the space underneath the floorboard. \"Hey! This house belongs to the spooky spirits. Get out of here, guest.")
+            elif player.current_locale == guest_room:
+                riddle_answer = input("A ghost flies out of the nightstand. \"...Hello. Do you wanna get out of here? I can help you, but just answer this quick question. What is your role here? ")
+                if riddle_answer.lower() == "a guest" or "guest" or "the guest":
+                    print("You're correct! I guess I'll let you go, since you know your place here")
+                    break
+                else:
+                    print("Wrong! Come back later...")
+                    continue
         elif desired_move == "north" or desired_move == "east" or desired_move == "south" or desired_move == "west":
             player.move(world, desired_move)
             continue
