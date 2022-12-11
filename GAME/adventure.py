@@ -38,7 +38,7 @@ world = World(
 # Player
 # - name of player, name of world, current locale, room counter, score
 name = input("What is your name? ")
-player = Player(name, world, foyer, 1, 1)
+player = Player(name, world, foyer, None, 1, 1)
 
 all_data = world, player
 
@@ -52,7 +52,7 @@ def print_first_room():
     print(foyer.summary)
 
 def get_help():
-    print("These are the valid commands: Help, Quit, North, East, South, West, Examine")
+    print("These are the valid commands: Help, Quit, North, East, South, West, Examine, Talk")
 
 # -- Searches through each room in dictionary to find correct details
 def examine():
@@ -80,12 +80,14 @@ def choose_action():
                 print("A ghost flies out of the space underneath the floorboard. \"Hey! This house belongs to the spooky spirits. Get out of here, guest.")
             elif player.current_locale == guest_room:
                 riddle_answer = input("A ghost flies out of the nightstand. \"...Hello. Do you wanna get out of here? I can help you, but just answer this quick question. What is your role here? ")
-                if riddle_answer.lower() == "a guest" or "guest" or "the guest":
+                if riddle_answer.lower() == "a guest" or riddle_answer.lower() == "guest" or riddle_answer.lower() == "the guest":
                     print("You're correct! I guess I'll let you go, since you know your place here")
+                    player.success = True
                     break
                 else:
-                    print("Wrong! Come back later...")
-                    continue
+                    print("Wrong! Have you learned nothing? This is the house of the ghosts, you're just a guest here.")
+                    player.success = False
+                    break
         elif desired_move == "north" or desired_move == "east" or desired_move == "south" or desired_move == "west":
             player.move(world, desired_move)
             continue
@@ -94,16 +96,29 @@ def choose_action():
             continue
 
 def print_outro():
+    if player.success == True:
+        print("The ghosts let you escape the house! You win!")
+    elif player.success == False:
+        print("The ghosts never let you escape. You are stuck in the guest room forever!")
     print("You visited", player.counter, "rooms. You have scored", player.score, "points.")
     print(f"Thank you for playing, {name}. Goodbye!")
     print("© Hannah Muermann 2022. All rights reserved.")
 
 # Main Game
 def main():
-    print_intro()
-    print_first_room()
-    choose_action()
-    print_outro()
+    while True:
+        print_intro()
+        print_first_room()
+        choose_action()
+        print_outro()
+        play_again = input("Would you like to play again? ")
+        if play_again.lower() == "yes":
+            continue
+        elif play_again.lower() == "no":
+            break
+        else:
+            print("If you would like to play again, please restart the game.")
+            break
 
 # Running the Game          
 main()

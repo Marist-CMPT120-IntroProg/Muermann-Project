@@ -2,10 +2,11 @@ from loc import *
 from world import *
 
 class Player:
-    def __init__(self, name, world, current_locale, counter = 1, score = 1):
+    def __init__(self, name, world, current_locale, success, counter = 1, score = 1):
         self.name = name
         self.world = world
         self.current_locale = current_locale
+        self.success = success
         self.counter = counter
         self.score = score
 
@@ -15,6 +16,9 @@ class Player:
     def update_current_locale(self, locale):
         self.current_locale = locale
         return self.current_locale
+
+    def get_success(self):
+        return self.success
 
     def update_counter(self, counter):
         self.counter = counter + 1
